@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class UpdateUserRequest extends FormRequest
 {
     /**
@@ -13,18 +14,23 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function rules()
     {
+        // Let's get the route param by name to get the User object value
+        $user = request()->route('user');
+
         return [
-            //
+            'name' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users,email,'.$user->id,
+            'username' => 'required|unique:users,username,'.$user->id,
         ];
     }
 }
