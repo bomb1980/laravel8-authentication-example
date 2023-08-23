@@ -1,0 +1,2067 @@
+composer create-project laravel/laravel example-app
+
+
+composer require laravel/sanctum
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+
+
+Route::group(['middleware' => 'auth'], function () {
+
+
+
+});
+
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+
+
+});
+
+
+php artisan migrate:fresh --seed
+
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES (NULL, 'testuser', 'testmail@mail.com', NULL, '', NULL, NULL, NULL);
+
+ $user = User::where('email', 'testmail@mail.com')->first();
+
+ Auth::loginUsingId($user->id);
+
+
+
+ use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TestController;
+use Illuminate\Support\Facades\Route;
+
+
+Route::get('/', [LoginController::class, 'home'])->name('home');
+
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+
+
+
+
+
+------------------------------------------------------------------------------------ end api login
+
+
+
+
+
+use illuminate\support\facades\storage;
+
+$url = storage::url('file.jpg');
+
+https://laravel.com/docs/9.x/filesystem
+
+
+
+
+https://laravel-livewire.com/docs/2.x/query-string
+
+
+http://tcm/activity/ready_confirm?reqform_id=1
+
+
+https://packagist.org/packages/elgibor-solution/laravel-database-encryption
+
+
+
+
+https://www.nicesnippets.com/blog/laravel-8-automatic-database-encryption-decryption-with-eloquent
+
+
+
+
+
+
+$(".datepicker").datepicker({
+    format: "yyyy-mm",
+    viewMode: "months",
+    minViewMode: "months",
+    autoclose: true
+}).on('change', function(e) {
+
+    let name = $( this ).attr( 'data-name' );
+
+    // @this.set_sub_data.startperioddate  = $(this).val();
+
+    @this.set( name, $(this).val());
+});
+
+
+$(".select2")
+.select2()
+.on('change', function(e) {
+
+    let name = $(this).attr('name');
+
+    window.livewire.find('Iz4587z42q5Ac7Aq7Ut4').set(name, $(this).val());
+});
+
+
+https://hywebthailand.atlassian.net/browse/OOAP-46
+
+
+
+http://tcm/request/sum_list?reqform_id=1
+
+
+https://www.figma.com/file/m2XUSFuEkDwpzSaYoPOdW9/%E0%B9%81%E0%B8%81%E0%B9%89%E0%B9%84%E0%B8%82%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%B7%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B9%89%E0%B8%AD%E0%B8%99
+
+
+https://getbootstrap.com/docs/4.0/components/modal/
+
+
+
+
+
+
+https://hywebthailand.atlassian.net/browse/OOAP-20
+
+
+
+
+
+
+
+
+
+
+view
+ {!! Form::open([
+        'wire:submit.prevent' => 'submit(Object.fromEntries(new FormData($event.target)))',
+        'autocomplete' => 'off',
+        'class' => 'fv-form form-horizontal fv-form-bootstrap4',
+    ]) !!}
+
+<button type="submit" class="btn btn-primary">{!! getIcon('save') !!} บันทึกงบประมาณ</button>
+    {!! Form::close() !!}
+
+
+//component
+ public function submit($formData)
+{
+
+    // dd($formData);
+
+
+}
+
+http://116.204.180.86:8060/grouppermission/create?reqform_id=1
+
+https://docs.google.com/spreadsheets/d/17Cj22aAX7Knduwi-AlLUUJyNppmz5aHSaxstJHAZ5jA/edit#gid=0
+
+https://docs.laravel-excel.com/3.1/getting-started/installation.html
+
+
+ทำเรืองแจ้งเตือน เมือมีคำขอ
+
+
+ServerName : localhost - Directory : D:/wamp/www
+ServerName : ngoengoo - Directory : c:/wamp64/www/project/ngoengoo
+ServerName : erp-isuzu - Directory : c:/wamp64/www/erp-isuzu
+ServerName : cosmatch - Directory : c:/wamp64/www/cosmatch-erp
+ServerName : gcity - Directory : c:/wamp64/www/goldcity-ecommerce/public
+ServerName : fm - Directory : c:/wamp64/www/fm91-news-portal/public
+ServerName : cosmatchwensite - Directory : c:/wamp64/www/cosmatch-wensite/public
+ServerName : cosl - Directory : c:/wamp64/www/cosmatch-live-streaming/public
+ServerName : tcmtsvls - Directory : c:/wamp64/www/tcmt_svls/public
+ServerName : tcm - Directory : c:/wamp64/www/tcm/public
+
+D:/wamp/bin/apache/apache2.4.51/conf/extra/httpd-vhosts.conf
+
+Windows hosts C:/WINDOWS/system32/drivers/etc/hosts
+
+
+
+<input autocomplete="off" data-test="testdfdfdffdfddf" onkeyup="javascript:controlnumbers( this, fm_numeric );" type="text" name="pay" id="pay" value="5000.00" class="box-edit-line">
+
+
+//
+//
+function controlnumbers(thestr,controlstr) {
+	if(controlstr.indexOf(thestr.value.charAt(thestr.value.length - 1)) == -1) {
+		var x=thestr.value.length - 1;
+		thestr.value=thestr.value.substring(0,x)
+	}
+
+	var Num = thestr.value;
+	Num += '';
+    Num = Num.replace(/,/g, '');
+
+    x = Num.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1))
+    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    thestr.value = x1 + x2;
+}
+
+
+
+
+
+php artisan storage:link
+php artisan migrate:fresh --seed
+
+php artisan migrate:refresh --path=/database/migrations/2022_08_19_143558_create_svls_tbl_employees_table.php
+php artisan migrate:refresh --path=/database/migrations/2022_08_15_143111_create_svls_tbl_applications_table.php
+
+php artisan db:seed --class=EmpSeeder
+php artisan db:seed --class=ApplicationSeeder
+
+ctrl + d หาอะไรเหมือนกัน
+ctrl + / ีคอมเม้น
+ctrl + w ปิด
+ctrl + t open last 50 file
+
+การเลือกไปตำแหน่งทีต้องการ
+คลิ๊กลูกกล้ิง แล้วลาก ctrl + shift ลาก ปล่อย
+
+
+
+สร้าง shotcut ให้พาธรูป
+php artisan make:livewire report/Report6Component
+
+
+return view('livewire.report.report1-component');
+
+$this->emit('loadJquery');
+
+
+document.addEventListener('livewire:load', function() {
+
+    $(".select2")
+        .select2()
+        .on('change', function(e) {
+
+            let name = $( this ).attr( 'name' );
+
+            @this.set( name, $(this).val());
+        });
+
+    $("#applications_birthday").datepicker({
+        language: 'th-th',
+        format: 'dd/mm/yyyy',
+        endDate: '-20y',
+        autoclose: true
+    });
+
+    window.livewire.on('loadJquery', () => {
+
+        $(".select2")
+            .select2()
+            .on('change', function(e) {
+
+                let name = $( this ).attr( 'name' );
+
+                @this.set( name, $(this).val());
+            });
+
+    });
+});
+
+https://hywebthailand.atlassian.net/jira/software/projects/OOAP/boards/8/backlog?cloudId=21a064d3-85e7-4dd9-83cf-53da0a67c831
+
+
+
+
+
+
+
+session()->flash('getSubDataTotal', 'ไม่สามารถกรอกเกิน 100 ได้');
+
+@if (session()->get('getSubDataTotal'))
+    <label class="text-danger">{{ session()->get('getSubDataTotal') }}</label>
+@endif
+
+
+
+<script>
+$(function() {
+
+    $('.my-bell').click(function() {
+                // alert('dfsasd');
+        $.getJSON('{{ route('readNoti') }}', {}, function() {
+
+
+        })
+
+        $.post(url, emailData, function(data, status) {
+
+        });
+</script>
+
+
+obj = JSON.parse(data)
+
+if (obj.success == 1) {
+    $(\'.OTPactionTrue\').show();
+        $(\'#reqLabelTrue\').html(obj.message);
+        }
+        else if (obj.success == 0) {
+            $(\'.OTPactionFalse\').show();
+                $(\'#reqLabelFalse\').html(obj.message);
+                }
+            });
+
+    });
+
+
+
+
+$(".date-picker").datepicker({
+    format: "dd/mm/yyyy",
+
+    autoclose: true
+}).on('change', function(e) {
+
+    let name = $(this).attr('data-name');
+
+    @this.set(name, $(this).val());
+
+});
+
+
+sfc /scannow
+
+dism.exe /Online /Cleanup-image /Restorehealth
+
+C:\Windows\Prefetch
+
+C:\Users\BOMBBO~1\AppData\Local\Temp
+
+
+file:///C:/Users/bombbomb1980/Documents/html/form-elements.html
+
+
+https://trello.com/b/9aOfHHPp/ooap
+
+
+ooap เมนูเก่า
+http://116.204.180.86:8066/
+
+
+งานล่าสดุ
+http://116.204.180.86:8060/grouppermission/create?reqform_id=1
+
+
+UPDATE db_ooap.ooap_mas_tambon
+
+LEFT JOIN tcmt_svls.svls_mas_subdistricts
+
+ON db_ooap.ooap_mas_tambon.tambon_name = tcmt_svls.svls_mas_subdistricts.subdistricts_name
+
+AND db_ooap.ooap_mas_tambon.postcode = tcmt_svls.svls_mas_subdistricts.subdistricts_postcode
+
+SET db_ooap.ooap_mas_tambon.tambon_code = tcmt_svls.svls_mas_subdistricts.subdistricts_code
+
+
+  $data = $data->where(function ($query) use ($request) {
+                $query->where('ooap_tbl_plan_adjusts.plan_number', 'LIKE', '%' . $request->txt_search . '%')
+                    ->orWhere('ooap_mas_acttype.name', 'LIKE', '%' . $request->txt_search . '%')
+                    ->orWhere('ooap_mas_amphur.amphur_name', 'LIKE', '%' . $request->txt_search . '%')
+                    ->orWhere('ooap_mas_tambon.tambon_name', 'LIKE', '%' . $request->txt_search . '%')
+                    ->orWhere('ooap_tbl_plan_adjusts.plan_moo', 'LIKE', '%' . $request->txt_search . '%');
+            });
+
+
+                        @this.set(name, $(this).val());
+
+
+https://gooddeeds-thailand.com/student/login-student.html?fbclid=IwAR3EzvRsityJZKAoEVvLMT_E5RmVFs0VF8t-iazSpMq4WW9WxRVG4TIfRNE
+https://gooddeeds-thailand.com/Status/status.html?fbclid=IwAR0VldMIJ-Y4jTVHkeboDYGgH0sO4xPiuBzZKsESWi-WkSI2X-xBjJIQ36I
+
+https://gooddeeds-thailand.com/student/gooddeed-student.html?fbclid=IwAR2TwX2sBKNTfO_V6yfYxYBgU0_zGgmVKR3u-G4JWvYGVe5xbGLPTfYdUnA
+
+
+https://gooddeeds-thailand.com/admin/MBS/admin-dashboard.html?fbclid=IwAR2sPz0jkT7sy2XErP8ZB2jyXfpUE9JdqzIWHS2hEXxSVavCztSog53PGIQ
+
+
+ $url = route('activity.operate.assessment_form', ['act_id' => $act_id, 'p_id' => $p_id]);
+
+
+
+https://bs1.hostinglotus.net:2222/ หรือ https://www.gooddeeds-thailand.com:2222/
+Username: gooddeed
+Password: 4]ZYzF5j6Ms+1g
+
+
+
+
+Database:	gooddeed_data
+Host:	localhost
+Username:	gooddeed_test
+Password:	eyzWB9EV5
+
+https://bs1.hostinglotus.net/phpMyAdmin/
+
+
+
+
+https://www.geeksforgeeks.org/laravel-import-export-excel-file/
+https://docs.laravel-excel.com/3.1/imports/basics.html
+
+
+https://laravel.com/docs/9.x/sanctum
+
+
+https://yajrabox.com/docs/laravel-oci8/9.0
+https://www.itsolutionstuff.com/post/laravel-livewire-crud-application-tutorialexample.html
+
+
+
+
+composer require livewire/livewire
+
+php artisan make:livewire posts
+
+
+fpdf
+https://codeanddeploy.com/blog/laravel/how-to-implement-laravel-8-using-fpdf-example
+
+
+
+
+composer dumpautoload
+
+
+
+
+
+use illuminate\support\facades\storage;
+
+$url = storage::url('file.jpg');
+
+https://laravel.com/docs/9.x/filesystem
+
+
+
+
+https://laravel-livewire.com/docs/2.x/query-string
+
+
+http://tcm/activity/ready_confirm?reqform_id=1
+
+
+https://packagist.org/packages/elgibor-solution/laravel-database-encryption
+
+
+
+
+https://www.nicesnippets.com/blog/laravel-8-automatic-database-encryption-decryption-with-eloquent
+
+
+
+
+
+
+
+
+$(".datepicker").datepicker({
+    format: "yyyy-mm",
+    viewMode: "months",
+    minViewMode: "months",
+    autoclose: true
+}).on('change', function(e) {
+
+    let name = $( this ).attr( 'data-name' );
+
+    // @this.set_sub_data.startperioddate  = $(this).val();
+
+    @this.set( name, $(this).val());
+});
+
+
+$(".select2")
+.select2()
+.on('change', function(e) {
+
+    let name = $(this).attr('name');
+
+    window.livewire.find('Iz4587z42q5Ac7Aq7Ut4').set(name, $(this).val());
+});
+
+
+https://hywebthailand.atlassian.net/browse/OOAP-46
+
+
+
+http://tcm/request/sum_list?reqform_id=1
+
+
+https://www.figma.com/file/m2XUSFuEkDwpzSaYoPOdW9/%E0%B9%81%E0%B8%81%E0%B9%89%E0%B9%84%E0%B8%82%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%B7%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B9%89%E0%B8%AD%E0%B8%99
+
+
+https://getbootstrap.com/docs/4.0/components/modal/
+
+
+
+
+
+
+https://hywebthailand.atlassian.net/browse/OOAP-20
+
+
+
+
+
+
+
+
+
+
+view
+ {!! Form::open([
+        'wire:submit.prevent' => 'submit(Object.fromEntries(new FormData($event.target)))',
+        'autocomplete' => 'off',
+        'class' => 'fv-form form-horizontal fv-form-bootstrap4',
+    ]) !!}
+
+<button type="submit" class="btn btn-primary">{!! getIcon('save') !!} บันทึกงบประมาณ</button>
+    {!! Form::close() !!}
+
+
+//component
+ public function submit($formData)
+{
+
+    // dd($formData);
+
+
+}
+
+http://116.204.180.86:8060/grouppermission/create?reqform_id=1
+
+https://docs.google.com/spreadsheets/d/17Cj22aAX7Knduwi-AlLUUJyNppmz5aHSaxstJHAZ5jA/edit#gid=0
+
+https://docs.laravel-excel.com/3.1/getting-started/installation.html
+
+
+ทำเรืองแจ้งเตือน เมือมีคำขอ
+
+
+ServerName : localhost - Directory : D:/wamp/www
+ServerName : ngoengoo - Directory : c:/wamp64/www/project/ngoengoo
+ServerName : erp-isuzu - Directory : c:/wamp64/www/erp-isuzu
+ServerName : cosmatch - Directory : c:/wamp64/www/cosmatch-erp
+ServerName : gcity - Directory : c:/wamp64/www/goldcity-ecommerce/public
+ServerName : fm - Directory : c:/wamp64/www/fm91-news-portal/public
+ServerName : cosmatchwensite - Directory : c:/wamp64/www/cosmatch-wensite/public
+ServerName : cosl - Directory : c:/wamp64/www/cosmatch-live-streaming/public
+ServerName : tcmtsvls - Directory : c:/wamp64/www/tcmt_svls/public
+ServerName : tcm - Directory : c:/wamp64/www/tcm/public
+
+D:/wamp/bin/apache/apache2.4.51/conf/extra/httpd-vhosts.conf
+
+Windows hosts C:/WINDOWS/system32/drivers/etc/hosts
+
+
+
+<input autocomplete="off" data-test="testdfdfdffdfddf" onkeyup="javascript:controlnumbers( this, fm_numeric );" type="text" name="pay" id="pay" value="5000.00" class="box-edit-line">
+
+
+//
+//
+function controlnumbers(thestr,controlstr) {
+	if(controlstr.indexOf(thestr.value.charAt(thestr.value.length - 1)) == -1) {
+		var x=thestr.value.length - 1;
+		thestr.value=thestr.value.substring(0,x)
+	}
+
+	var Num = thestr.value;
+	Num += '';
+    Num = Num.replace(/,/g, '');
+
+    x = Num.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1))
+    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    thestr.value = x1 + x2;
+}
+
+
+php artisan make:component NavbarsComponent
+
+
+php artisan storage:link
+
+php artisan make:livewire member/MemberPasswordEditComponent
+
+php artisan make:livewire proflieBlockComponent
+php artisan make:livewire member/MemberImgProfileUploadComponent
+
+
+php artisan migrate:refresh --path=/database/migrations/2022_08_19_143558_create_svls_tbl_employees_table.php
+php artisan migrate:refresh --path=/database/migrations/2022_08_15_143111_create_svls_tbl_applications_table.php
+
+php artisan db:seed --class=EmpSeeder
+php artisan db:seed --class=ApplicationSeeder
+
+ctrl + d หาอะไรเหมือนกัน
+ctrl + / ีคอมเม้น
+ctrl + w ปิด
+ctrl + t open last 50 file
+
+การเลือกไปตำแหน่งทีต้องการ
+คลิ๊กลูกกล้ิง แล้วลาก ctrl + shift ลาก ปล่อย
+
+
+
+สร้าง shotcut ให้พาธรูป
+php artisan make:livewire report/Report6Component
+
+
+return view('livewire.report.report1-component');
+
+$this->emit('loadJquery');
+
+
+document.addEventListener('livewire:load', function() {
+
+    $(".select2")
+        .select2()
+        .on('change', function(e) {
+
+            let name = $( this ).attr( 'name' );
+
+            @this.set( name, $(this).val());
+        });
+
+    $("#applications_birthday").datepicker({
+        language: 'th-th',
+        format: 'dd/mm/yyyy',
+        endDate: '-20y',
+        autoclose: true
+    });
+
+    window.livewire.on('loadJquery', () => {
+
+        $(".select2")
+            .select2()
+            .on('change', function(e) {
+
+                let name = $( this ).attr( 'name' );
+
+                @this.set( name, $(this).val());
+            });
+
+    });
+});
+
+https://hywebthailand.atlassian.net/jira/software/projects/OOAP/boards/8/backlog?cloudId=21a064d3-85e7-4dd9-83cf-53da0a67c831
+
+
+
+
+
+
+
+session()->flash('getSubDataTotal', 'ไม่สามารถกรอกเกิน 100 ได้');
+
+@if (session()->get('getSubDataTotal'))
+    <label class="text-danger">{{ session()->get('getSubDataTotal') }}</label>
+@endif
+
+
+
+<script>
+$(function() {
+
+    $('.my-bell').click(function() {
+                // alert('dfsasd');
+        $.getJSON('{{ route('readNoti') }}', {}, function() {
+
+
+        })
+
+        $.post(url, emailData, function(data, status) {
+
+        });
+</script>
+
+
+obj = JSON.parse(data)
+
+if (obj.success == 1) {
+    $(\'.OTPactionTrue\').show();
+        $(\'#reqLabelTrue\').html(obj.message);
+        }
+        else if (obj.success == 0) {
+            $(\'.OTPactionFalse\').show();
+                $(\'#reqLabelFalse\').html(obj.message);
+                }
+            });
+
+    });
+
+
+
+
+$(".date-picker").datepicker({
+    format: "dd/mm/yyyy",
+
+    autoclose: true
+}).on('change', function(e) {
+
+    let name = $(this).attr('data-name');
+
+    @this.set(name, $(this).val());
+
+});
+
+
+sfc /scannow
+
+dism.exe /Online /Cleanup-image /Restorehealth
+
+C:\Windows\Prefetch
+
+C:\Users\BOMBBO~1\AppData\Local\Temp
+
+
+file:///C:/Users/bombbomb1980/Documents/html/form-elements.html
+
+
+https://trello.com/b/9aOfHHPp/ooap
+
+
+ooap เมนูเก่า
+http://116.204.180.86:8066/
+
+
+งานล่าสดุ
+http://116.204.180.86:8060/grouppermission/create?reqform_id=1
+
+
+UPDATE db_ooap.ooap_mas_tambon
+
+LEFT JOIN tcmt_svls.svls_mas_subdistricts
+
+ON db_ooap.ooap_mas_tambon.tambon_name = tcmt_svls.svls_mas_subdistricts.subdistricts_name
+
+AND db_ooap.ooap_mas_tambon.postcode = tcmt_svls.svls_mas_subdistricts.subdistricts_postcode
+
+SET db_ooap.ooap_mas_tambon.tambon_code = tcmt_svls.svls_mas_subdistricts.subdistricts_code
+
+
+  $data = $data->where(function ($query) use ($request) {
+                $query->where('ooap_tbl_plan_adjusts.plan_number', 'LIKE', '%' . $request->txt_search . '%')
+                    ->orWhere('ooap_mas_acttype.name', 'LIKE', '%' . $request->txt_search . '%')
+                    ->orWhere('ooap_mas_amphur.amphur_name', 'LIKE', '%' . $request->txt_search . '%')
+                    ->orWhere('ooap_mas_tambon.tambon_name', 'LIKE', '%' . $request->txt_search . '%')
+                    ->orWhere('ooap_tbl_plan_adjusts.plan_moo', 'LIKE', '%' . $request->txt_search . '%');
+            });
+
+
+                        @this.set(name, $(this).val());
+
+
+https://gooddeeds-thailand.com/student/login-student.html?fbclid=IwAR3EzvRsityJZKAoEVvLMT_E5RmVFs0VF8t-iazSpMq4WW9WxRVG4TIfRNE
+https://gooddeeds-thailand.com/Status/status.html?fbclid=IwAR0VldMIJ-Y4jTVHkeboDYGgH0sO4xPiuBzZKsESWi-WkSI2X-xBjJIQ36I
+
+https://gooddeeds-thailand.com/student/gooddeed-student.html?fbclid=IwAR2TwX2sBKNTfO_V6yfYxYBgU0_zGgmVKR3u-G4JWvYGVe5xbGLPTfYdUnA
+
+
+https://gooddeeds-thailand.com/admin/MBS/admin-dashboard.html?fbclid=IwAR2sPz0jkT7sy2XErP8ZB2jyXfpUE9JdqzIWHS2hEXxSVavCztSog53PGIQ
+
+
+ $url = route('activity.operate.assessment_form', ['act_id' => $act_id, 'p_id' => $p_id]);
+
+
+
+https://bs1.hostinglotus.net:2222/ หรือ https://www.gooddeeds-thailand.com:2222/
+Username: gooddeed
+Password: 4]ZYzF5j6Ms+1g
+
+
+
+
+Database:	gooddeed_data
+Host:	localhost
+Username:	gooddeed_test
+Password:	eyzWB9EV5
+
+https://bs1.hostinglotus.net/phpMyAdmin/
+
+
+
+
+https://www.geeksforgeeks.org/laravel-import-export-excel-file/
+https://docs.laravel-excel.com/3.1/imports/basics.html
+
+
+https://laravel.com/docs/9.x/sanctum
+
+
+https://yajrabox.com/docs/laravel-oci8/9.0
+https://www.itsolutionstuff.com/post/laravel-livewire-crud-application-tutorialexample.html
+
+
+
+
+composer require livewire/livewire
+
+php artisan make:livewire posts
+
+
+fpdf
+https://codeanddeploy.com/blog/laravel/how-to-implement-laravel-8-using-fpdf-example
+
+
+
+
+
+
+
+Artisan::call('config:clear');
+
+Storage::disk('local')->put('public/bbbb.txt', 'Contents');
+
+
+echo asset('storage/bbbb.txt');
+
+
+echo storage_path('CorpInfoWebServiceV5.wsdl');
+
+
+Storage::disk('local')->put('public/bbjjjjjjjbb.txt', 'Contents');
+
+
+echo asset('storage/bbjjjjjjjbb.txt');
+
+echo '<br>';
+
+echo   file_get_contents( storage_path('app/public/bbjjjjjjjbb.txt'));
+
+
+https://laravel.com/docs/10.x/filesystem
+
+
+
+composer require theanik/laravel-more-command --dev
+
+
+php artisan make:view login/form
+
+
+https://laravelcollective.com/docs/6.x/html
+composer require laravelcollective/html
+
+
+composer require hcesrl/laravel-swagger-api
+
+php artisan vendor:publish --provider="LaravelApi\ServiceProvider"
+
+
+composer require yajra/laravel-datatables:"^9.0"
+
+
+แก้ปัญหาสร้างวิว ไม่ได้
+composer require theanik/laravel-more-command --dev
+
+
+https://redberry.international/integrate-swagger-with-laravel-project/
+npm install swagger-ui
+
+npm run dev
+
+
+https://laravel-livewire.com/
+
+https://laravel-livewire.com/docs/2.x/installation
+
+
+composer require livewire/livewire
+
+php artisan livewire:publish --config
+php artisan livewire:publish --assets
+
+php artisan make:livewire user/profile
+
+
+php artisan make:component NavbarsComponent
+
+
+แก้ปัญหา livewire.js
+
+config\livewire.php
+
+'asset_url' => '.',
+
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+การเทสดึงข้อมูล dbd
+	SPEC แบบช่วงเวลา
+
+    Array
+    (
+        [subscribeId] => user
+        [pincode] => password
+        [fullPathToWsdl] => path to file
+        [corpInfoFilter] => Array
+        (
+            [corpType] => *
+            [tsic] => *
+            [province] => *
+        )
+
+        [registerDateRange] => Array
+        (
+            [startDate] => 2023-08-03T00:00:00+07:00
+            [endDate] => 2023-08-03T23:59:59+07:00
+        )
+
+        [changeDateRange] =>
+        [newEntry] => 1
+        [changedEntry] => 1
+        [recordOffset] => 0
+        [recordLimit] => 2
+    )
+
+    ตัวอย่างข้อมูล
+    stdClass Object
+    (
+        [CorpInfoList] => stdClass Object
+            (
+                [corpInfo] => Array
+                    (
+                        [0] => stdClass Object
+                            (
+                                [tsic] => 56101
+                                [tsicName] => การบริการด้านอาหารในภัตตาคาร/ร้านอาหาร
+                                [corpType] => 5
+                                [corpTypeName] => บริษัทจำกัด
+                                [registerNumber] => 0905566005111
+                                [registerName] => วอทเดอะฟิช กระบี่ จำกัด
+                                [registerDate] => 2023-08-03T00:00:00+07:00
+                                [updatedDate] => 2023-08-03T08:33:28+07:00
+                                [updatedEntry] =>
+                                [authorizedCapital] => 5000000
+                                [committees] => stdClass Object
+                                    (
+                                        [committee] => stdClass Object
+                                            (
+                                                [committeeType] => K
+                                                [orderNumber] => 1
+                                                [identityType] => 1
+                                                [identity] => 1309900987972
+                                                [title] => น.ส.
+                                                [firstName] => ดวงดาว
+                                                [lastName] => ลาภภัทรนันท์
+                                                [englishTitle] => Ms.
+                                                [englishFirstName] => DUANGDAO
+                                                [englishLastName] => LAPPATTARANAN
+                                                [nationality] => TH
+                                                [dateOfBirth] => 1993-12-19T00:00:00+07:00
+                                            )
+
+                                    )
+
+                                [branches] => stdClass Object
+                                    (
+                                        [branch] => stdClass Object
+                                            (
+                                                [name] => สำนักงานใหญ่
+                                                [orderNumber] => 0
+                                                [houseId] => 90160048770
+                                                [houseNumber] => 63/16
+                                                [moo] => 2
+                                                [tumbon] => คลองหอยโข่ง
+                                                [ampur] => คลองหอยโข่ง
+                                                [province] => สงขลา
+                                                [tumbonCode] => 01
+                                                [ampurCode] => 16
+                                                [provinceCode] => 90
+                                                [zipCode] => 90230
+                                                [phoneNumber] => 0902019549
+                                                [email] => Hatyaisashimi@gmail.com
+                                            )
+
+                                    )
+
+                                [accountingDate] => 0208
+                                [statusCode] => 1
+                                [combine] => stdClass Object
+                                    (
+                                    )
+
+                                [cpower] => กรรมการหนึ่งคนลงลายมือชื่อ
+                            )
+
+                        [1] => stdClass Object
+                            (
+                                [tsic] => 18119
+                                [tsicName] => การพิมพ์อื่น ๆ ซึ่งมิได้จัดประเภทไว้ในที่อื่น
+                                [corpType] => 5
+                                [corpTypeName] => บริษัทจำกัด
+                                [registerNumber] => 0115566024261
+                                [registerName] => ทูทีเชิ้ต จำกัด
+                                [registerDate] => 2023-08-03T00:00:00+07:00
+                                [updatedDate] => 2023-08-03T08:35:28+07:00
+                                [updatedEntry] =>
+                                [authorizedCapital] => 1000000
+                                [committees] => stdClass Object
+                                    (
+                                        [committee] => stdClass Object
+                                            (
+                                                [committeeType] => K
+                                                [orderNumber] => 1
+                                                [identityType] => 1
+                                                [identity] => 1119600004011
+                                                [title] => นาย
+                                                [firstName] => มนตะกาน
+                                                [lastName] => มณีรัตนประภา
+                                                [englishTitle] => Mr.
+                                                [englishFirstName] => MONTAKARN
+                                                [englishLastName] => MANEERATTANAPRAPA
+                                                [nationality] => TH
+                                                [dateOfBirth] => 1996-01-02T00:00:00+07:00
+                                            )
+
+                                    )
+
+                                [branches] => stdClass Object
+                                    (
+                                        [branch] => stdClass Object
+                                            (
+                                                [name] => สำนักงานใหญ่
+                                                [orderNumber] => 0
+                                                [houseId] => 11031831088
+                                                [houseNumber] => 110/7
+                                                [moo] => 4
+                                                [tumbon] => บางแก้ว
+                                                [ampur] => บางพลี
+                                                [province] => สมุทรปราการ
+                                                [tumbonCode] => 02
+                                                [ampurCode] => 03
+                                                [provinceCode] => 11
+                                                [zipCode] => 10540
+                                                [phoneNumber] => 0959892296
+                                                [email] => acc.rakbunchee@gmail.com
+                                            )
+
+                                    )
+
+                                [accountingDate] => 0208
+                                [statusCode] => 1
+                                [combine] => stdClass Object
+                                    (
+                                    )
+
+                                [cpower] => กรรมการหนึ่งคนลงลายมือชื่อและประทับตราสำคัญของบริษัท
+                            )
+
+                    )
+
+                [count] => 2
+            )
+
+    )
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+    SPEC แบบregisterNumber
+    [
+        [subscribeId] => 6211003
+        [pincode] => P@ssw0rd
+        [fullPathToWsdl] => path to file
+        [registerNumber] => 0205522000153
+    ]
+
+    ตัวอย่างข้อมูล
+    stdClass Object
+    (
+        [CorpInfo] => stdClass Object
+            (
+                [tsic] => 46900
+                [tsicName] => การขายส่งสินค้าทั่วไป
+                [corpType] => 5
+                [corpTypeName] => บริษัทจำกัด
+                [registerNumber] => 0205522000153
+                [registerName] => สหชลผลพืช จำกัด
+                [registerDate] => 1979-06-05T00:00:00+07:00
+                [updatedDate] => 2023-07-24T10:40:11+07:00
+                [updatedEntry] => 1
+                [authorizedCapital] => 325000000
+                [committees] => stdClass Object
+                    (
+                        [committee] => Array
+                            (
+                                [0] => stdClass Object
+                                    (
+                                        [committeeType] => K
+                                        [orderNumber] => 1
+                                        [identityType] => 1
+                                        [identity] => 3200700647603
+                                        [title] => นาย
+                                        [firstName] => สืบชัย
+                                        [lastName] => ชุณห์สุทธิวัฒน์
+                                        [englishTitle] => Mr.
+                                        [englishFirstName] => SUEBCHAI
+                                        [englishLastName] => CHUNSUTTIWAT
+                                        [nationality] => TH
+                                    )
+
+                                [1] => stdClass Object
+                                    (
+                                        [committeeType] => K
+                                        [orderNumber] => 2
+                                        [identityType] => 1
+                                        [identity] => 3100400296474
+                                        [title] => น.ส.
+                                        [firstName] => รัตนา
+                                        [lastName] => เธียรลิขิต
+                                        [englishTitle] => Ms.
+                                        [englishFirstName] => RATANA
+                                        [englishLastName] => THIENLIKIT
+                                        [nationality] => TH
+                                    )
+
+                                [2] => stdClass Object
+                                    (
+                                        [committeeType] => K
+                                        [orderNumber] => 3
+                                        [identityType] => 1
+                                        [identity] => 3100904935322
+                                        [title] => นาย
+                                        [firstName] => พงษ์พรรธน์
+                                        [lastName] => ธนสารศิลป์
+                                        [englishTitle] => Mr.
+                                        [englishFirstName] => PHONGPHAT
+                                        [englishLastName] => DHANASARNSILP
+                                        [nationality] => TH
+                                    )
+
+                                [3] => stdClass Object
+                                    (
+                                        [committeeType] => K
+                                        [orderNumber] => 4
+                                        [identityType] => 1
+                                        [identity] => 5100900078766
+                                        [title] => นาย
+                                        [firstName] => บุญเกียรติ
+                                        [lastName] => โชควัฒนา
+                                        [englishTitle] => Mr.
+                                        [englishFirstName] => BOONKIET
+                                        [englishLastName] => CHOKWATANA
+                                        [nationality] => TH
+                                    )
+
+                                [4] => stdClass Object
+                                    (
+                                        [committeeType] => K
+                                        [orderNumber] => 5
+                                        [identityType] => 1
+                                        [identity] => 3609800115772
+                                        [title] => นาง
+                                        [firstName] => สุกัญญา
+                                        [lastName] => กีรติประเสริฐ
+                                        [englishTitle] => Mrs.
+                                        [englishFirstName] => SUKANYA
+                                        [englishLastName] => KEERATIPRASERT
+                                        [nationality] => TH
+                                    )
+
+                                [5] => stdClass Object
+                                    (
+                                        [committeeType] => K
+                                        [orderNumber] => 6
+                                        [identityType] => 1
+                                        [identity] => 5101299045162
+                                        [title] => นาย
+                                        [firstName] => ภีมภัทร
+                                        [lastName] => ตาละลักษมณ์
+                                        [englishTitle] => Mr.
+                                        [englishFirstName] => PIMAPATT
+                                        [englishLastName] => TALALAK
+                                        [nationality] => TH
+                                        [dateOfBirth] => 1963-11-26T00:00:00+07:00
+                                    )
+
+                                [6] => stdClass Object
+                                    (
+                                        [committeeType] => K
+                                        [orderNumber] => 7
+                                        [identityType] => 1
+                                        [identity] => 3100800052211
+                                        [title] => นาย
+                                        [firstName] => วิชัย
+                                        [lastName] => กุลสมภพ
+                                        [englishTitle] => Mr.
+                                        [englishFirstName] => VICHAI
+                                        [englishLastName] => KULSOMPHOB
+                                        [nationality] => TH
+                                        [dateOfBirth] => 1977-04-11T00:00:00+07:00
+                                    )
+
+                                [7] => stdClass Object
+                                    (
+                                        [committeeType] => K
+                                        [orderNumber] => 8
+                                        [identityType] => 1
+                                        [identity] => 3650800815334
+                                        [title] => นาย
+                                        [firstName] => พรเทพ
+                                        [lastName] => ศิริวนารังสรรค์
+                                        [englishTitle] => Mr.
+                                        [englishFirstName] => PORNTEP
+                                        [englishLastName] => SIRIWANARANGSUN
+                                    )
+
+                            )
+
+                    )
+
+                [branches] => stdClass Object
+                    (
+                        [branch] => Array
+                            (
+                                [0] => stdClass Object
+                                    (
+                                        [name] => สำนักงานใหญ่
+                                        [orderNumber] => 0
+                                        [houseNumber] => 955/559
+                                        [moo] => 11
+                                        [road] => สุขาภิบาล8
+                                        [tumbon] => หนองขาม
+                                        [ampur] => ศรีราชา
+                                        [province] => ชลบุรี
+                                        [tumbonCode] => 05
+                                        [ampurCode] => 07
+                                        [provinceCode] => 20
+                                        [zipCode] => 20110
+                                    )
+
+                                [1] => stdClass Object
+                                    (
+                                        [name] => สาขาที่ 1
+                                        [orderNumber] => 1
+                                        [houseNumber] => 128
+                                        [moo] => 9
+                                        [tumbon] => ป่าตุ้ม
+                                        [ampur] => พร้าว
+                                        [province] => เชียงใหม่
+                                        [tumbonCode] => 03
+                                        [ampurCode] => 11
+                                        [provinceCode] => 50
+                                        [zipCode] => 50190
+                                    )
+
+                            )
+
+                    )
+
+                [accountingDate] => 3112
+                [statusCode] => 1
+                [cpower] => กรรมการสองคนลงลายมือชื่อร่วมกัน และประทับตราสำคัญของบริษัท
+            )
+
+    )
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+การเทสดึงข้อมูล led
+
+        $url = 'https://services.led.go.th/v1/GdxWebServiceSam';
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST',
+			CURLOPT_SSL_VERIFYHOST => 0,
+			CURLOPT_SSL_VERIFYPEER => 0,
+			CURLOPT_POSTFIELDS => '{
+				"username": "SSO001",
+				"password": "",
+				"type": "DATA",
+				"firstName": "",
+				"lastName": "",
+				"idCard": "0133528000308",
+				"reqHeader": {
+					"transID": "SSO20180620",
+					"rqAppID": "SSO",
+					"transDateTimestamp": "20180620",
+					"terminalID": "terminalID",
+					"ip": "127.0.0.1",
+					"branchCode": "001"
+				}
+			}',
+			CURLOPT_HTTPHEADER => array(
+				'Content-Type: application/json'
+			),
+		));
+
+		$response = curl_exec($curl);
+
+
+        หากมีคำสั่งจากศาล
+        stdClass Object
+        (
+            [responseCode] => 000
+            [responseMessage] => Person or business receiving order by court.
+            [data] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [tws_id] => 505375
+                            [recv_no] => 5802
+                            [recv_yr] => 2555
+                            [df_id] => 0133528000308
+                            [df_name] => รัตนพัฒน์ ครองทรัพย์
+                            [df_surname] =>
+                            [df_no] => 1
+                            [court_name] => ศาลล้มละลายกลาง
+                            [court_type] => 1
+                            [black_case] => ล.3402
+                            [black_yy] => 2555
+                            [red_case] => ล.7174
+                            [red_yy] => 2555
+                            [plaintiff1] => บริษัท บริหารสินทรัพย์กรุงเทพพาณิชย์ จำกัด
+                            [plaintiff2] =>
+                            [plaintiff3] =>
+                            [defendant1] => ห้างหุ้นส่วนจำกัด รัตนพัฒน์ คอนสตรัคชั่น หรือ ห้างหุ้นส่วนจำกัด รัตนพัฒน์ ครองทรัพย์ ที่ 1
+                            [defendant2] => นายเสน่ห์ โปษนานนท์ ที่ 2
+                            [defendant3] => นางสายหยุด โปษนานนท์ หุ้นส่วนไม่จำกัดความรับผิดของจำเลยที่ 1 ผู้ถูกร้อง ที่ 3
+                            [case_capital] => 2241724
+                            [tmp_prot_dd] =>
+                            [tmp_prot_mm] =>
+                            [tmp_prot_yy] =>
+                            [tmp_gaz_dd] =>
+                            [tmp_gaz_mm] =>
+                            [tmp_gaz_yy] =>
+                            [tmp_gaz_book] =>
+                            [tmp_gaz_part] =>
+                            [tmp_gaz_page] =>
+                            [tmp_ejc_dd] =>
+                            [tmp_ejc_mm] =>
+                            [tmp_ejc_yy] =>
+                            [tmp_ejc_gaz_dd] =>
+                            [tmp_ejc_gaz_mm] =>
+                            [tmp_ejc_gaz_yy] =>
+                            [tmp_ejc_gaz_book] =>
+                            [tmp_ejc_gaz_part] =>
+                            [tmp_ejc_gaz_page] =>
+                            [abs_prot_dd] => 11
+                            [abs_prot_mm] => 10
+                            [abs_prot_yy] => 2555
+                            [abs_gaz_dd] => 05
+                            [abs_gaz_mm] => 02
+                            [abs_gaz_yy] => 2556
+                            [abs_gaz_book] => 130
+                            [abs_gaz_part] => 14ง
+                            [abs_gaz_page] => 40
+                            [abs_due_dd] => 05
+                            [abs_due_mm] => 04
+                            [abs_due_yy] => 2556
+                            [abs_req_dd] => 23
+                            [abs_req_mm] => 04
+                            [abs_req_yy] => 2556
+                            [abs_ejc_dd] =>
+                            [abs_ejc_mm] =>
+                            [abs_ejc_yy] =>
+                            [abs_ejc_gaz_dd] =>
+                            [abs_ejc_gaz_mm] =>
+                            [abs_ejc_gaz_yy] =>
+                            [abs_ejc_gaz_book] =>
+                            [abs_ejc_gaz_part] =>
+                            [abs_ejc_gaz_page] =>
+                            [b_cou_set_dd] =>
+                            [b_cou_set_mm] =>
+                            [b_cou_set_yy] =>
+                            [b_set_gaz_dd] =>
+                            [b_set_gaz_mm] =>
+                            [b_set_gaz_yy] =>
+                            [b_set_gaz_book] =>
+                            [b_set_gaz_part] =>
+                            [b_set_gaz_page] =>
+                            [b_can_set_dd] =>
+                            [b_can_set_mm] =>
+                            [b_can_set_yy] =>
+                            [b_can_gaz_dd] =>
+                            [b_can_gaz_mm] =>
+                            [b_can_gaz_yy] =>
+                            [b_can_gaz_book] =>
+                            [b_can_gaz_part] =>
+                            [b_can_gaz_page] =>
+                            [bkr_prot_dd] => 04
+                            [bkr_prot_mm] => 07
+                            [bkr_prot_yy] => 2559
+                            [bkr_gaz_dd] => 27
+                            [bkr_gaz_mm] => 09
+                            [bkr_gaz_yy] => 2559
+                            [bkr_gaz_book] => 133
+                            [bkr_gaz_part] => 80ง
+                            [bkr_gaz_page] => 184
+                            [a_cou_set_dd] =>
+                            [a_cou_set_mm] =>
+                            [a_cou_set_yy] =>
+                            [a_set_gaz_dd] =>
+                            [a_set_gaz_mm] =>
+                            [a_set_gaz_yy] =>
+                            [a_set_gaz_book] =>
+                            [a_set_gaz_part] =>
+                            [a_set_gaz_page] =>
+                            [a_can_set_dd] =>
+                            [a_can_set_mm] =>
+                            [a_can_set_yy] =>
+                            [a_can_gaz_dd] =>
+                            [a_can_gaz_mm] =>
+                            [a_can_gaz_yy] =>
+                            [a_can_gaz_book] =>
+                            [a_can_gaz_part] =>
+                            [a_can_gaz_page] =>
+                            [a_due_set_dd] =>
+                            [a_due_set_mm] =>
+                            [a_due_set_yy] =>
+                            [c_bkr_dd] =>
+                            [c_bkr_mm] =>
+                            [c_bkr_yy] =>
+                            [c_gaz_dd] =>
+                            [c_gaz_mm] =>
+                            [c_gaz_yy] =>
+                            [c_gaz_book] =>
+                            [c_gaz_part] =>
+                            [c_gaz_page] =>
+                            [r_bkr_dd] =>
+                            [r_bkr_mm] =>
+                            [r_bkr_yy] =>
+                            [r_gaz_dd] =>
+                            [r_gaz_mm] =>
+                            [r_gaz_yy] =>
+                            [r_gaz_book] =>
+                            [r_gaz_part] =>
+                            [r_gaz_page] =>
+                            [df_expire_dd] =>
+                            [df_expire_mm] =>
+                            [df_expire_yy] =>
+                            [df_manage_dd] =>
+                            [df_manage_mm] =>
+                            [df_manage_yy] =>
+                            [df_manage_ejc_dd] =>
+                            [df_manage_ejc_mm] =>
+                            [df_manage_ejc_yy] =>
+                            [re_bkr_dd] =>
+                            [re_bkr_mm] =>
+                            [re_bkr_yy] =>
+                            [uacc_dd] =>
+                            [uacc_mm] =>
+                            [uacc_yy] =>
+                            [s_bkr_dd] =>
+                            [s_bkr_mm] =>
+                            [s_bkr_yy] =>
+                            [close_dd] =>
+                            [close_mm] =>
+                            [close_yy] =>
+                            [req_dd] => 08
+                            [req_mm] => 06
+                            [req_yy] => 2555
+                            [oth_dd] =>
+                            [oth_mm] =>
+                            [oth_yy] =>
+                            [remark] =>
+                            [corrupt] =>
+                            [lastupdate] => 2018-05-23
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [tws_id] => 505374
+                            [recv_no] => 5802
+                            [recv_yr] => 2555
+                            [df_id] => 0133528000308
+                            [df_name] => รัตนพัฒน์ คอนสตรัคชั่น
+                            [df_surname] =>
+                            [df_no] => 1
+                            [court_name] => ศาลล้มละลายกลาง
+                            [court_type] => 1
+                            [black_case] => ล.3402
+                            [black_yy] => 2555
+                            [red_case] => ล.7174
+                            [red_yy] => 2555
+                            [plaintiff1] => บริษัท บริหารสินทรัพย์กรุงเทพพาณิชย์ จำกัด
+                            [plaintiff2] =>
+                            [plaintiff3] =>
+                            [defendant1] => ห้างหุ้นส่วนจำกัด รัตนพัฒน์ คอนสตรัคชั่น หรือ ห้างหุ้นส่วนจำกัด รัตนพัฒน์ ครองทรัพย์ ที่ 1
+                            [defendant2] => นายเสน่ห์ โปษนานนท์ ที่ 2
+                            [defendant3] => นางสายหยุด โปษนานนท์ หุ้นส่วนไม่จำกัดความรับผิดของจำเลยที่ 1 ผู้ถูกร้อง ที่ 3
+                            [case_capital] => 2241724
+                            [tmp_prot_dd] =>
+                            [tmp_prot_mm] =>
+                            [tmp_prot_yy] =>
+                            [tmp_gaz_dd] =>
+                            [tmp_gaz_mm] =>
+                            [tmp_gaz_yy] =>
+                            [tmp_gaz_book] =>
+                            [tmp_gaz_part] =>
+                            [tmp_gaz_page] =>
+                            [tmp_ejc_dd] =>
+                            [tmp_ejc_mm] =>
+                            [tmp_ejc_yy] =>
+                            [tmp_ejc_gaz_dd] =>
+                            [tmp_ejc_gaz_mm] =>
+                            [tmp_ejc_gaz_yy] =>
+                            [tmp_ejc_gaz_book] =>
+                            [tmp_ejc_gaz_part] =>
+                            [tmp_ejc_gaz_page] =>
+                            [abs_prot_dd] => 11
+                            [abs_prot_mm] => 10
+                            [abs_prot_yy] => 2555
+                            [abs_gaz_dd] => 05
+                            [abs_gaz_mm] => 02
+                            [abs_gaz_yy] => 2556
+                            [abs_gaz_book] => 130
+                            [abs_gaz_part] => 14ง
+                            [abs_gaz_page] => 40
+                            [abs_due_dd] => 05
+                            [abs_due_mm] => 04
+                            [abs_due_yy] => 2556
+                            [abs_req_dd] => 23
+                            [abs_req_mm] => 04
+                            [abs_req_yy] => 2556
+                            [abs_ejc_dd] =>
+                            [abs_ejc_mm] =>
+                            [abs_ejc_yy] =>
+                            [abs_ejc_gaz_dd] =>
+                            [abs_ejc_gaz_mm] =>
+                            [abs_ejc_gaz_yy] =>
+                            [abs_ejc_gaz_book] =>
+                            [abs_ejc_gaz_part] =>
+                            [abs_ejc_gaz_page] =>
+                            [b_cou_set_dd] =>
+                            [b_cou_set_mm] =>
+                            [b_cou_set_yy] =>
+                            [b_set_gaz_dd] =>
+                            [b_set_gaz_mm] =>
+                            [b_set_gaz_yy] =>
+                            [b_set_gaz_book] =>
+                            [b_set_gaz_part] =>
+                            [b_set_gaz_page] =>
+                            [b_can_set_dd] =>
+                            [b_can_set_mm] =>
+                            [b_can_set_yy] =>
+                            [b_can_gaz_dd] =>
+                            [b_can_gaz_mm] =>
+                            [b_can_gaz_yy] =>
+                            [b_can_gaz_book] =>
+                            [b_can_gaz_part] =>
+                            [b_can_gaz_page] =>
+                            [bkr_prot_dd] => 04
+                            [bkr_prot_mm] => 07
+                            [bkr_prot_yy] => 2559
+                            [bkr_gaz_dd] => 27
+                            [bkr_gaz_mm] => 09
+                            [bkr_gaz_yy] => 2559
+                            [bkr_gaz_book] => 133
+                            [bkr_gaz_part] => 80ง
+                            [bkr_gaz_page] => 184
+                            [a_cou_set_dd] =>
+                            [a_cou_set_mm] =>
+                            [a_cou_set_yy] =>
+                            [a_set_gaz_dd] =>
+                            [a_set_gaz_mm] =>
+                            [a_set_gaz_yy] =>
+                            [a_set_gaz_book] =>
+                            [a_set_gaz_part] =>
+                            [a_set_gaz_page] =>
+                            [a_can_set_dd] =>
+                            [a_can_set_mm] =>
+                            [a_can_set_yy] =>
+                            [a_can_gaz_dd] =>
+                            [a_can_gaz_mm] =>
+                            [a_can_gaz_yy] =>
+                            [a_can_gaz_book] =>
+                            [a_can_gaz_part] =>
+                            [a_can_gaz_page] =>
+                            [a_due_set_dd] =>
+                            [a_due_set_mm] =>
+                            [a_due_set_yy] =>
+                            [c_bkr_dd] =>
+                            [c_bkr_mm] =>
+                            [c_bkr_yy] =>
+                            [c_gaz_dd] =>
+                            [c_gaz_mm] =>
+                            [c_gaz_yy] =>
+                            [c_gaz_book] =>
+                            [c_gaz_part] =>
+                            [c_gaz_page] =>
+                            [r_bkr_dd] =>
+                            [r_bkr_mm] =>
+                            [r_bkr_yy] =>
+                            [r_gaz_dd] =>
+                            [r_gaz_mm] =>
+                            [r_gaz_yy] =>
+                            [r_gaz_book] =>
+                            [r_gaz_part] =>
+                            [r_gaz_page] =>
+                            [df_expire_dd] =>
+                            [df_expire_mm] =>
+                            [df_expire_yy] =>
+                            [df_manage_dd] =>
+                            [df_manage_mm] =>
+                            [df_manage_yy] =>
+                            [df_manage_ejc_dd] =>
+                            [df_manage_ejc_mm] =>
+                            [df_manage_ejc_yy] =>
+                            [re_bkr_dd] =>
+                            [re_bkr_mm] =>
+                            [re_bkr_yy] =>
+                            [uacc_dd] =>
+                            [uacc_mm] =>
+                            [uacc_yy] =>
+                            [s_bkr_dd] =>
+                            [s_bkr_mm] =>
+                            [s_bkr_yy] =>
+                            [close_dd] =>
+                            [close_mm] =>
+                            [close_yy] =>
+                            [req_dd] => 08
+                            [req_mm] => 06
+                            [req_yy] => 2555
+                            [oth_dd] =>
+                            [oth_mm] =>
+                            [oth_yy] =>
+                            [remark] =>
+                            [corrupt] =>
+                            [lastupdate] => 2018-05-23
+                        )
+
+                )
+
+        )
+
+
+        หากมีไม่มีคำสั่งจากศาล
+        stdClass Object
+        (
+            [responseCode] => 904
+            [responseMessage] => Not found person or business receiving order by court.
+            [data] =>
+        )
+
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
+การเทสดึงข้อมูล จากกรมสรรพากร
+
+    ภงด1
+
+    $param = [
+
+        [NIDSearch] => 0205522000153
+        [taxYear] => 2564
+        [branchNo] => 000000
+        [formCode] => PND1
+        [taxMonthBegin] => 0
+        [taxMonthEnd] => 12
+        [NIDStatus] => 0
+
+    ]
+
+    $curl = curl_init();
+
+    $url = 'https://platformext.rd.go.th/SSOService/wht/GetListPNDInfoDetA/' . urlencode(json_encode($param));
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'GET',
+    CURLOPT_HTTPHEADER => array(
+        'username:  rdsso',
+        'password:  -hZtdG.68+c3L+g$'
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+
+    stdClass Object
+    (
+        [responseError] => null
+        [responseData] => stdClass Object
+            (
+                [NIDSearch] => 0205522000153
+                [detailInformation] => Array
+                    (
+                        [0] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703012564021202098400
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 1
+                                [branchNo] => 000000
+                            )
+
+                        [1] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703012564031002116422
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 2
+                                [branchNo] => 000000
+                            )
+
+                        [2] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703012564040802138321
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 3
+                                [branchNo] => 000000
+                            )
+
+                        [3] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703012564050702154018
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 4
+                                [branchNo] => 000000
+                            )
+
+                        [4] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703012564061102106600
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 5
+                                [branchNo] => 000000
+                            )
+
+                        [5] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703012564070902107712
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 6
+                                [branchNo] => 000000
+                            )
+
+                        [6] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703012564082302077602
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 7
+                                [branchNo] => 000000
+                            )
+
+                        [7] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703012564091002104533
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 8
+                                [branchNo] => 000000
+                            )
+
+                        [8] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703202564101502000136
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 9
+                                [branchNo] => 000000
+                            )
+
+                        [9] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703202564111002000141
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 10
+                                [branchNo] => 000000
+                            )
+
+                        [10] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703202564120902000138
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 11
+                                [branchNo] => 000000
+                            )
+
+                        [11] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด100006000052010703202565011202000112
+                                [formCode] => ภงด1
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0205522000153
+                                [totSetOfAttach] => 2
+                                [taxMonth] => 12
+                                [branchNo] => 000000
+                            )
+
+                    )
+
+            )
+
+        [responseStatus] => OK
+    )
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+    ภงด1ก
+
+    $param = [
+
+        [NIDSearch] => 0505562014187
+        [branchNo] => 000000
+        [formCode] => PND1A
+        [taxYear] => 2564
+        [taxMonthBegin] => 0
+        [taxMonthEnd] => 12
+        [NIDStatus] => 0
+
+    ]
+
+    $url = 'https://platformext.rd.go.th/SSOService/wht/GetListPNDInfoDetA/' . urlencode(json_encode($param));
+
+
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'username: rdsso',
+                'password: -hZtdG.68+c3L+g$'
+            ),
+    ));
+
+    $response =  curl_exec($curl);
+
+    stdClass Object
+    (
+        [responseError] => null
+        [responseData] => stdClass Object
+            (
+                [NIDSearch] => 0505562014187
+                [detailInformation] => Array
+                    (
+                        [0] => stdClass Object
+                            (
+                                [NIDStatus] => 0
+                                [dlnNo] => ภงด1ก00006000085000103212565022801000211
+                                [formCode] => ภงด1ก
+                                [submitNo] => 0
+                                [taxYear] => 2564
+                                [NID] => 0505562014187
+                                [totSetOfAttach] => 1
+                                [taxMonth] => 0
+                                [branchNo] => 000000
+                            )
+
+                    )
+
+            )
+
+        [responseStatus] => OK
+    )
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    ภงด.50
+
+    $param = [
+
+        [nid] => 0205522000153
+        [year] => 2564
+
+    ]
+
+    $url = 'https://platformext.rd.go.th/SSOService/cit/GetInfoPND50?' . http_build_query($param, 'flags_');
+
+    stdClass Object
+    (
+        [SSO] => Array
+            (
+                [0] => stdClass Object
+                    (
+                        [TXP_NID] => 0205522000153
+                        [TAX_YEAR] => 2564
+                        [TXP_TTL_TEXT] => บริษัท
+                        [TXP_C_NAME] => สหชลผลพืช จำกัด
+                        [ADDR_BLD_TEXT] => -
+                        [ADDR_ROOM_TEXT] => -
+                        [ADDR_FLOOR_TEXT] => -
+                        [ADDR_VIL_TEXT] => -
+                        [ADDR_HOUSE_TEXT] => 955/559
+                        [ADDR_MOO_TEXT] => 11
+                        [ADDR_SOI_TEXT] => -
+                        [ADDR_STREET_TEXT] => สุขาภิบาล 8
+                        [ADDR_SUB_DIST_ID] => 200705
+                        [ADDR_DIST_ID] => 2007
+                        [ADDR_PROV_ID] => 20
+                        [ADDR_POST_CODE_TEXT] => 20230
+                        [PER_FROM_DATE] => 25640101
+                        [PER_TO_DATE] => 25641231
+                        [SUB_IND] => 1
+                        [SUB_CNT] => 0
+                        [MFGC_SAL_TOT_AMT] => 32793127.49
+                        [SELE_PSN_EXP_TOT_AMT] => 23053817.12
+                    )
+
+            )
+
+    )
+
+
+
+
+
+composer require phattarachai/line-notify
+
+https://notify-bot.line.me/my/ create token
+php artisan vendor:publish --provider="Phattarachai\LineNotify\LineNotifyServiceProvider"
+
+vendor\phattarachai\line-notify\src\LineNotifyServiceProvider.php
+
+
+
+https://packagist.org/packages/whchi/laravel-linebot-wrapper
+composer require whchi/laravel-linebot-wrapper
+php artisan vendor:publish --provider="Whchi\LaravelLineBotWrapper\LINEBotServiceProvider"
+
+https://github.com/whchi/laravel-linebot-wrapper
+
+
+
+composer create-project laravel/laravel excel
+composer require maatwebsite/excel
+
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
+
+
+
+dialogflow linbot
+ https://dialogflow.cloud.google.com/#/agent/bombbot-rkea/intents
+
+
+line sticker id
+https://developers.line.biz/en/docs/messaging-api/sticker-list/#sticker-definitions
+
+
+{"line": {"type": "text", "text": "่json บอมครับ"}}
+
+{
+    "line": {
+        "type": "sticker",
+        "packageId": "1",
+        "stickerId": "1"
+    }
+}
+
+
+
+https://puwanai.com/line-bot-php-ep-1.html
+
+
+php artisan --version
+
+
+
+https://www.youtube.com/watch?v=Viqd6c2mhA0
+
+
+
+
+composer require laravel/sanctum
+
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+
+
+
+https://codeanddeploy.com/blog/laravel/laravel-8-user-roles-and-permissions-step-by-step-tutorial#7xQdDAw586ATiyYkRaiWjgijr
